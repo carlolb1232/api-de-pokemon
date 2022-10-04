@@ -1,6 +1,7 @@
 .App {
-  text-align: center;
   margin-top: 55px;
+  display: flex;
+  justify-content: center;
 }
 
 button{
@@ -10,4 +11,8 @@ button{
   border: none;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.pokemones{
+  width: 15%;
 }

@@ -16,14 +16,17 @@ const Pokemon = () => {
     setIsClicked(!isClicked)
   }
   return (
-    <div>
+    <div className='pokemones'>
       <button onClick={handleClick}>Fetch Pokemon</button>
       {
-        isClicked&&(
-          pokemones.length > 0 && pokemones.map((pokemon,idx)=>{
-            return (<div key={idx}>{pokemon.name}</div>)
-          })
-        )
+        isClicked&&
+        <ul>
+          {
+            pokemones.length > 0 && pokemones.map((pokemon,idx)=>{
+              return (<li key={idx}>{pokemon.name}</li>)
+            })
+          }
+        </ul>
         
       }
     </div>
