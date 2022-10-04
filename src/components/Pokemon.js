@@ -8,18 +8,19 @@ const Pokemon = () => {
 
   
   useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1154')
-    .then(response => response.json())
-    .then(response=>setPokemones(response.results))
-  }, []);
+
+    if (isClicked) {
+      fetch('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1154')
+      .then(response => response.json())
+      .then(response=>setPokemones(response.results))
+    }
+  }, [isClicked]);
   const handleClick = ()=>{
     setIsClicked(!isClicked)
   }
   return (
     <div className='pokemones'>
       <button onClick={handleClick}>Fetch Pokemon</button>
-      {
-        isClicked&&
         <ul>
           {
             pokemones.length > 0 && pokemones.map((pokemon,idx)=>{
@@ -27,8 +28,6 @@ const Pokemon = () => {
             })
           }
         </ul>
-        
-      }
     </div>
   );
 }
